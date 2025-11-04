@@ -3,12 +3,15 @@ import { Fragment, Suspense, lazy } from "react";
 import Loading from "./components/Loading/Loading";
 import Layout from "./components/Layout/Layout";
 
+// Lazy import pages
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs"));
 const Blog = lazy(() => import("./pages/Blog/Blog"));
 const Faq = lazy(() => import("./pages/Faq/Faq"));
+const Footer = lazy(() => import("./components/Footer/Footer"))
 const Home = lazy(() => import("./pages/Home/Home"));
 const Projects = lazy(() => import("./pages/Projects/Projects"));
+const Header = lazy(() => import("./components/Header/Header")); 
 
 function App() {
   return (
@@ -45,6 +48,22 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Faq />
+                </Suspense>
+              }
+            />
+            <Route
+              path="header"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Header />
+                </Suspense>
+              }
+            />
+            <Route
+              path="footer"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Footer />
                 </Suspense>
               }
             />

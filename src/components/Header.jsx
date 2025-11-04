@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from '../Pages/menu'
+import Menu from './Pages/menu'
 function Header() {
     return (
         <header>
